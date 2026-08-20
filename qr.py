@@ -1,18 +1,7 @@
 import qrcode
 
 
-# Ask the user for a website link.
-wname = input("Enter a website name: ").strip()
-website_link = input("Enter a website link: ").strip()
-
-if not website_link.startswith(("http://", "https://")):
-	print("Please enter a valid link starting with http:// or https://")
-else:
-	# Create the QR code and save it as an image.
-	qr_code = qrcode.make(website_link)
-	file_name = wname + ".png"
-	qr_code.save(file_name)
-	print(f"QR code saved as {file_name}")
+def show_menu():
 	print("\n===== QR CODE GENERATOR =====")
 	print("1. Website link")
 	print("2. Plain text")
@@ -23,6 +12,7 @@ else:
 	print("7. Email address")
 
 
+def get_qr_data(choice):
 	if choice == "1":
 		return input("Enter the website link: ").strip()
 
@@ -46,8 +36,7 @@ else:
 
 	if choice == "6":
 		print("Use a shareable link for another person to open the file.")
-		file_location = input("Enter the document/image link or file path: ").strip()
-		return file_location
+		return input("Enter the document/image link or file path: ").strip()
 
 	if choice == "7":
 		email = input("Enter the email address: ").strip()
@@ -56,6 +45,7 @@ else:
 	return ""
 
 
+show_menu()
 selected_option = input("Choose an option (1-7): ").strip()
 qr_data = get_qr_data(selected_option)
 
