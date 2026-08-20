@@ -1,6 +1,4 @@
 import qrcode
-
-
 def show_menu():
 	print("\n===== QR CODE GENERATOR =====")
 	print("1. Website link")
@@ -10,7 +8,6 @@ def show_menu():
 	print("5. Wi-Fi details")
 	print("6. Document or image link/path")
 	print("7. Email address")
-
 
 def get_qr_data(choice):
 	if choice == "1":
